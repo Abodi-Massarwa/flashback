@@ -78,7 +78,8 @@ class Avl(Tree):
         return left_child
 
     def leftRightRotate(self, node) -> Node:
-        pass
+        node.left= self.leftRotate(node.left)
+        return self.rightRotate(node)
 
     def leftRotate(self, node: Node) -> Node:
         right_child = node.right
@@ -104,12 +105,13 @@ class Avl(Tree):
         return right_child
 
     def rightLeftRotate(self, node) -> Node:
-        pass
+        node.right= self.rightRotate(node.right)
+        return self.leftRotate(node)
 
 
 if __name__ == '__main__':
     avl = Avl()
+    avl.insert(1)
     avl.insert(5)
-    avl.insert(4)
-    avl.insert(3)
-    print(avl.root.left.val)
+    avl.insert(2)
+    print()
