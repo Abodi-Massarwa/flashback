@@ -67,4 +67,4 @@ if __name__ == '__main__':
     shjra.insert(3)
     shjra.insert(-1)
     print(shjra.is_in(-4))
-    print(shjra.length())
+    print(shjra.height())

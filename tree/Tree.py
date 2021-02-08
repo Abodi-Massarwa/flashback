@@ -17,13 +17,13 @@ class Tree:
     def delete(self, val):
         raise NotImplementedError
 
-    def length(self):
-        return self.length_rec(self.root)
+    def height(self):
+        return self.height_rec(self.root)
 
-    def length_rec(self, n) -> int:
+    def height_rec(self, n) -> int:
         if n is None:
             return (-1)
-        return max(self.length_rec(n.left), self.length_rec(n.right)) + 1
+        return max(self.height_rec(n.left), self.height_rec(n.right)) + 1
 
     def is_in(self, val) -> bool:
 
