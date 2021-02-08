@@ -32,7 +32,7 @@ class Avl(Tree):
                 n.left.parent = n
                 # TODO add balance check for rotation purposes if possible
                 self.checkBalance(x)
-
+            self.insert_rec(n.left, val)
 
     def checkBalance(self, x: Node):
         if abs(self.length_rec(x.left) - self.length_rec(x.right)) > 1:
@@ -68,10 +68,14 @@ class Avl(Tree):
             left_child.parent = None
             self.root = left_child
 
+
         node.left = left_child.right
-        left_child.right.parent = node
+        if left_child.right is not None:
+            left_child.right.parent = node
+
         left_child.right = node
         node.parent = left_child
+        return left_child
 
     def leftRightRotate(self, node) -> Node:
         pass
@@ -97,6 +101,7 @@ class Avl(Tree):
 
         right_child.left = node
         node.parent = right_child
+        return right_child
 
     def rightLeftRotate(self, node) -> Node:
         pass
@@ -104,7 +109,7 @@ class Avl(Tree):
 
 if __name__ == '__main__':
     avl = Avl()
-    avl.insert(1)
-    avl.insert(2)
+    avl.insert(5)
+    avl.insert(4)
     avl.insert(3)
-    print(avl.root.val)
+    print(avl.root.left.val)
